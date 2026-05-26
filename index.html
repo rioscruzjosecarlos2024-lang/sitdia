@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SITDIA - Plataforma Oficial</title>
+    <style>
+        /* --- ESTILOS GLOBALES PREMIUM Y COLORIDOS --- */
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* --- ENCABEZADO / NAVBAR --- */
+        header {
+            background-color: #ffffff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-principal {
+            max-width: 200px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-principal:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* --- SECCIÓN HERO (¿QUÉ ES SITDIA?) --- */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: #ffffff;
+            padding: 60px 40px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+            margin-bottom: 50px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-top: 0;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 850px;
+            margin: 20px auto 0 auto;
+            opacity: 0.95;
+        }
+
+        /* --- SECCIÓN HISTORIA LSM --- */
+        .historia-lsm {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.02);
+            margin-bottom: 50px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .historia-lsm h2 {
+            color: #0f172a;
+            font-size: 28px;
+            margin-top: 0;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .historia-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        @media (min-width: 768px) {
+            .historia-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .historia-bloque h3 {
+            color: #1e3a8a;
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        .historia-bloque p {
+            font-size: 15px;
+            color: #475569;
+            margin-bottom: 0;
+        }
+
+        /* --- ENFOQUE DEL PROYECTO (HUMANO Y CONCEPTUAL) --- */
+        .enfoque-contenedor {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            margin-bottom: 60px;
+            border: 1px solid #e2e8f0;
+            border-left: 6px solid #10b981; /* Verde Inclusión */
+            text-align: left;
+        }
+
+        .enfoque-contenedor h2 {
+            color: #065f46;
+            font-size: 26px;
+            margin-top: 0;
+        }
+
+        .enfoque-contenedor p {
+            font-size: 16px;
+            color: #334155;
+            margin-bottom: 0;
+        }
+
+        /* --- SECCIÓN DISEÑO GENERAL (CONOCE SITDIA) --- */
+        .seccion-titulo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .seccion-titulo h2 {
+            font-size: 32px;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .seccion-titulo p {
+            font-size: 16px;
+            color: #64748b;
+        }
+
+        /* --- TARJETAS MODULARES COLORIDAS --- */
+        .modulo-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            margin-bottom: 40px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .modulo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .modulo-info h3 {
+            margin-top: 0;
+            font-size: 26px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* Clases de colores específicos para los bordes y etiquetas */
+        .card-ingresar { border-left: 6px solid #eab308; } /* Amarillo/Dorado */
+        .tag-ingresar { background-color: #fef9c3; color: #854d0e; }
+        .card-ingresar h3 { color: #854d0e; }
+
+        .card-comunicacion { border-left: 6px solid #2563eb; } /* Azul */
+        .tag-comunicacion { background-color: #dbeafe; color: #1e40af; }
+        .card-comunicacion h3 { color: #1e40af; }
+
+        .card-emergencia { border-left: 6px solid #dc2626; } /* Rojo */
+        .tag-emergencia { background-color: #fee2e2; color: #991b1b; }
+        .card-emergencia h3 { color: #991b1b; }
+
+        .modulo-tag {
+            font-size: 13px;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .modulo-info p {
+            font-size: 16px;
+            color: #475569;
+            margin-bottom: 15px;
+        }
+
+        .modulo-info ul {
+            padding-left: 20px;
+            margin: 0;
+            color: #334155;
+        }
+
+        .modulo-info li {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .container-imagen {
+            text-align: center;
+            width: 100%;
+        }
+
+        .imagen-modulo {
+            max-width: 100%;
+            height: auto;
+            max-height: 380px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #f1f5f9;
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 35px 20px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 80px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        footer strong {
+            color: #ffffff;
+        }
+
+        /* Diseño responsivo para computadoras */
+        @media (min-width: 768px) {
+            .modulo-card {
+                flex-direction: row;
+                align-items: center;
+            }
+            .modulo-info {
+                flex: 1.2;
+            }
+            .container-imagen {
+                flex: 0.8;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="imagenes/logo10.png" alt="SITDIA Logo" class="logo-principal">
+    </header>
+
+    <div class="container">
+
+        <section class="hero">
+            <h1>¿Qué es SITDIA actualmente?</h1>
+            <p>Es un sistema tecnológico modular orientado al fortalecimiento de la accesibilidad comunicativa, la difusión de la Lengua de Señas Mexicana y el desarrollo de herramientas funcionales para situaciones reales[cite: 4]. El proyecto evoluciona hacia un ecosistema de herramientas digitales adaptadas a distintos contextos de interacción, aprendizaje, emergencia y apoyo comunicativo[cite: 5].</p>
+        </section>
+
+        <section class="historia-lsm">
+            <h2>Historia de la Lengua de Señas Mexicana</h2>
+            
+            <div class="historia-grid">
+                <div class="historia-bloque">
+                    <h3>Los Orígenes y el Mandato de Juárez</h3>
+                    <p>La historia de la LSM estructurada en nuestro país da un giro fundamental en 1867, bajo el mandato del presidente Benito Juárez, quien decretó la fundación de la Escuela Nacional de Sordomudos. Este hecho histórico permitió unificar las señas emergentes de las comunidades locales junto con la influencia de la lengua de señas francesa, consolidando formalmente los primeros cimientos de la identidad lingüística de la comunidad sorda mexicana.</p>
+                </div>
+                
+                <div class="historia-bloque">
+                    <h3>Una Lengua legítima y Propia</h3>
+                    <p>La LSM posee su propia gramática, sintaxis, modismos y vocabulario estructurado, por lo que es un error considerarla una simple representación gestual del español o un deletreo de palabras[cite: 35]. Al igual que cualquier lengua viva, varía según las regiones geográficas del país y se apoya fuertemente en expresiones corporales y faciales para transmitir matices gramaticales y semánticos completos[cite: 35].</p>
+                </div>
+
+                <div class="historia-bloque">
+                    <h3>El Reconocimiento Oficial (2005)</h3>
+                    <p>Tras décadas de esfuerzo colectivo por la inclusión legal, el <strong>10 de junio de 2005</strong> marcó un hito histórico fundamental: la LSM fue reconocida de forma oficial por la ley como una <strong>lengua nacional</strong>[cite: 18]. Esto integró de lleno a la LSM como parte del valioso patrimonio lingüístico de México, igualando su estatus legal al de las lenguas indígenas y el español[cite: 18].</p>
+                </div>
+
+                <div class="historia-bloque">
+                    <h3>El Enfoque de SITDIA en el Siglo XXI</h3>
+                    <p>A pesar de su estatus de lengua nacional, la escasez de soluciones tecnológicas interactivas diseñadas desde la realidad de los usuarios limita su masificación y preservación[cite: 23, 24, 25]. SITDIA surge precisamente en este contexto para responder de manera práctica, cultural y funcional ante los desafíos cotidianos de comunicación mediante una ingeniería de software modular[cite: 204, 205].</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="enfoque-contenedor">
+            <h2>Enfoque Humano del Proyecto</h2>
+            <p>Uno de los pilares más importantes de SITDIA es su enfoque conceptual y humano: el proyecto <strong>no aborda a la comunidad sorda desde una perspectiva asistencialista, clínica o de inferioridad</strong>, ni plantea la sordera únicamente como una limitación médica que deba "corregirse"[cite: 31, 32, 33, 34]. Por el contrario, reconoce a la Lengua de Señas Mexicana como una lengua legítima con valor social propio[cite: 35]. La accesibilidad no se plantea como caridad, la inclusión no se basa en lástima y la tecnología busca fortalecer la autonomía y reducir las barreras cotidianas desde el máximo respeto a su identidad[cite: 37, 38, 40, 43].</p>
+        </section>
+
+        <section class="seccion-titulo">
+            <h2>Diseño General de la Aplicación</h2>
+            <p>La interfaz principal se estructura alrededor de tres módulos centrales representados mediante botones grandes, visuales y accesibles[cite: 166]:</p>
+        </section>
+
+        <div class="modulo-card card-ingresar">
+            <div class="modulo-info">
+                <h3>Módulo: INGRESAR <span class="modulo-tag tag-ingresar">Contenidos y Aprendizaje</span></h3>
+                <p>Módulo de difusión y aprendizaje interactivo orientado al conocimiento de la LSM y la cultura sorda[cite: 125, 126]. Proporciona una experiencia dinámica y visualmente limpia alejada de lo institucional para incentivar la participación constante[cite: 140, 194, 203]. Incluye accesos directos a:</p>
+                <ul>
+                    <li><strong>Contenidos informativos:</strong> Materiales didácticos y aprendizaje visual guiado[cite: 128, 131, 168].</li>
+                    <li><strong>Juegos interactivos:</strong> Dinámicas educativas, retos y sistemas de actividad para medir el progreso del usuario[cite: 135, 136, 137, 138, 168].</li>
+                    <li><strong>Exploración del sistema:</strong> Secciones dedicadas a la cultura sorda y expresiones básicas[cite: 129, 130, 168].</li>
+                </ul>
+            </div>
+            <div class="container-imagen">
+                <img src="imagenes/modulo1.png" alt="Módulo INGRESAR SITDIA" class="imagen-modulo">
+            </div>
+        </div>
+
+        <div class="modulo-card card-comunicacion" style="flex-direction: column-reverse; @media (min-width: 768px) { flex-direction: row; }">
+            <div class="container-imagen">
+                <img src="imagenes/modulo2.png" alt="Módulo COMUNICACIÓN SITDIA" class="imagen-modulo">
+            </div>
+            <div class="modulo-info">
+                <h3>Módulo: COMUNICACIÓN <span class="modulo-tag tag-comunicacion">Interacción Cotidiana</span></h3>
+                <p>Diseñado específicamente para facilitar interacciones rápidas y reducir el impacto de las barreras comunicativas en entornos cotidianos[cite: 43, 46]. Utiliza un sistema práctico estructurado por categorías lógicas[cite: 48]:</p>
+                <ul>
+                    <li><strong>Tarjetas Comunicativas Inmediatas:</strong> Despliega mensajes grandes, legibles y claros en la pantalla orientados a personas oyentes en escenarios cotidianos[cite: 46, 47, 177].</li>
+                    <li><strong>Categorías funcionales integradas:</strong> Organización óptima de mensajes en áreas críticas como necesidades básicas, salud, transporte, trámites, servicios públicos y comunicación de carácter social[cite: 48, 51, 59, 62, 69].</li>
+                    <li><strong>Apoyo cotidiano:</strong> Contempla futuras implementaciones como traducción rápida, reproducción por voz y personalización de tarjetas favoritas[cite: 74, 75, 76, 179].</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="modulo-card card-emergencia">
+            <div class="modulo-info">
+                <h3>Módulo: EMERGENCIA <span class="modulo-tag tag-emergencia">Asistencia y Seguridad</span></h3>
+                <p>Uno de los componentes más críticos de la arquitectura, enfocado en proveer herramientas de apoyo silencioso y seguro en situaciones de riesgo o accidentes donde la comunicación verbal directa resulta imposible[cite: 79, 81, 82]. Se compone de:</p>
+                <ul>
+                    <li><strong>Perfil Médico Almacenado:</strong> Guarda localmente datos vitales del usuario como nombre, tipo de sangre, alergias, medicamentos actuales, hospital preferido y contactos directos[cite: 83, 84, 85, 86, 87, 88, 89].</li>
+                    <li><strong>Sistema de Alertas dual:</strong> Diferenciación de protocolos institucionales automáticos para emergencias mayores (envío de ubicación, notificación automatizada y contacto con servicios públicos) y alertas de contingencia para contactos seleccionados ante desastres menores o accidentes controlados[cite: 93, 94, 96, 98, 99, 101, 103, 107].</li>
+                    <li><strong>QR de Emergencia y Pulsera:</strong> Vincula el perfil médico a un código QR dinámico que puede portarse físicamente en llaveros o pulseras de identificación, permitiendo a los servicios médicos escanearlo y conocer al instante condiciones críticas[cite: 112, 113, 115, 117, 120, 121].</li>
+                </ul>
+            </div>
+            <div class="container-imagen">
+                <img src="imagenes/modulo3.png" alt="Módulo EMERGENCIA SITDIA" class="imagen-modulo">
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p><strong>SITDIA</strong> - Sistema Inteligente para la Traducción y Difusión de la Lengua de Señas Mexicana[cite: 1].</p>
+        <p>© 2026 Concurso Académico de Innovación Tecnológica. Desarrollado con Framework Flutter[cite: 157]. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
