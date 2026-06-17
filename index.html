@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SITDIA - Plataforma Oficial</title>
+    <title>SICADEL - Plataforma Oficial Ecosistema Tecnológico</title>
     <style>
-        /* --- ESTILOS GLOBALES PREMIUM Y COLORIDOS --- */
+        /* --- ESTILOS GLOBALES PREMIUM --- */
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             margin: 0;
@@ -15,22 +15,31 @@
             line-height: 1.6;
         }
 
-        /* --- ENCABEZADO / NAVBAR --- */
+        /* --- ENCABEZADO / NAVBAR MEJORADO CON COLOR Y BORDES REDONDEADOS --- */
         header {
-            background-color: #ffffff;
-            padding: 20px 40px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            padding: 15px 35px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.15);
             position: sticky;
-            top: 0;
+            top: 15px; /* Efecto flotante */
+            margin: 0 20px;
+            border-radius: 50px; /* Bordes súper redondeados */
             z-index: 100;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-contenedor {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .logo-principal {
-            max-width: 200px;
-            height: auto;
+            height: 40px;
+            width: auto;
             transition: transform 0.3s ease;
         }
 
@@ -38,18 +47,38 @@
             transform: scale(1.05);
         }
 
+        .logo-texto {
+            font-size: 22px;
+            font-weight: 800;
+            color: #ffffff; /* Texto blanco sobre fondo oscuro */
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links a {
+            color: #93c5fd;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 20px;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
         /* --- CONTENEDOR PRINCIPAL --- */
         .container {
-            max-width: 1100px;
-            margin: 0 auto;
+            max-width: 1200px;
+            margin: 20px auto 0 auto;
             padding: 40px 20px;
         }
 
-        /* --- SECCIÓN HERO (¿QUÉ ES SITDIA?) --- */
+        /* --- SECCIÓN HERO (SICADEL) --- */
         .hero {
             background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
             color: #ffffff;
-            padding: 60px 40px;
+            padding: 80px 40px;
             border-radius: 24px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
@@ -57,17 +86,80 @@
         }
 
         .hero h1 {
-            font-size: 36px;
+            font-size: 42px;
             margin-top: 0;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .hero h2 {
+            font-size: 18px;
+            font-weight: 400;
+            color: #93c5fd;
+            margin-top: -10px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
         }
 
         .hero p {
-            font-size: 18px;
-            max-width: 850px;
-            margin: 20px auto 0 auto;
+            font-size: 19px;
+            max-width: 900px;
+            margin: 20px auto 30px auto;
             opacity: 0.95;
+        }
+
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background-color: #1d4ed8;
+        }
+
+        /* --- PANEL DE ESTADÍSTICAS Y MÉTRICAS --- */
+        .seccion-stats {
+            margin-bottom: 50px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+        }
+
+        .stat-numero {
+            font-size: 40px;
+            font-weight: 800;
+            color: #2563eb;
+            margin-bottom: 5px;
+        }
+
+        .stat-card:nth-child(2) .stat-numero { color: #dc2626; }
+        .stat-card:nth-child(3) .stat-numero { color: #059669; }
+
+        .stat-label {
+            font-size: 14px;
+            color: #64748b;
+            font-weight: 600;
         }
 
         /* --- SECCIÓN HISTORIA LSM --- */
@@ -94,13 +186,10 @@
             grid-template-columns: 1fr;
             gap: 25px;
             margin-top: 25px;
-            text-align: left;
         }
 
         @media (min-width: 768px) {
-            .historia-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            .historia-grid { grid-template-columns: 1fr 1fr; }
         }
 
         .historia-bloque h3 {
@@ -115,16 +204,15 @@
             margin-bottom: 0;
         }
 
-        /* --- ENFOQUE DEL PROYECTO (HUMANO Y CONCEPTUAL) --- */
+        /* --- SECCIÓN ENFOQUE HUMANO --- */
         .enfoque-contenedor {
             background-color: #ffffff;
             padding: 40px;
             border-radius: 24px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             border: 1px solid #e2e8f0;
-            border-left: 6px solid #10b981; /* Verde Inclusión */
-            text-align: left;
+            border-left: 6px solid #10b981;
         }
 
         .enfoque-contenedor h2 {
@@ -133,42 +221,93 @@
             margin-top: 0;
         }
 
-        .enfoque-contenedor p {
-            font-size: 16px;
-            color: #334155;
-            margin-bottom: 0;
+        /* --- MOCKUP INTERACTIVO INTELIGENCIA ARTIFICIAL --- */
+        .simulador-ia {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 40px;
+            border-radius: 24px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
-        /* --- SECCIÓN DISEÑO GENERAL (CONOCE SITDIA) --- */
+        .simulador-ia h2 {
+            color: #38bdf8;
+            margin-top: 0;
+        }
+
+        .panel-camara {
+            background: #0f172a;
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            margin: 20px auto;
+            border-radius: 16px;
+            border: 2px dashed #475569;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .malla-puntos {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .resultado-traduccion {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 20px;
+            color: #38bdf8;
+            margin-top: 15px;
+            display: inline-block;
+            border: 1px solid #38bdf8;
+        }
+
+        .btn-ia-control {
+            background: #38bdf8;
+            color: #0f172a;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            margin: 5px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-ia-control:hover { opacity: 0.9; }
+
+        /* --- TARJETAS MODULARES DE LA APP --- */
         .seccion-titulo {
             text-align: center;
             margin-bottom: 40px;
         }
 
-        .seccion-titulo h2 {
-            font-size: 32px;
-            color: #0f172a;
-            margin-bottom: 10px;
-        }
+        .seccion-titulo h2 { font-size: 32px; color: #0f172a; margin-bottom: 5px; }
 
-        .seccion-titulo p {
-            font-size: 16px;
-            color: #64748b;
-        }
-
-        /* --- TARJETAS MODULARES COLORIDAS --- */
         .modulo-card {
             background: #ffffff;
             border-radius: 24px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             padding: 40px;
             display: flex;
             flex-direction: column;
             gap: 30px;
             border: 1px solid #e2e8f0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .modulo-card:hover {
@@ -176,198 +315,414 @@
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
         }
 
-        .modulo-info h3 {
-            margin-top: 0;
-            font-size: 26px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
+        .modulo-info h3 { margin-top: 0; font-size: 26px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 
-        /* Clases de colores específicos para los bordes y etiquetas */
-        .card-ingresar { border-left: 6px solid #eab308; } /* Amarillo/Dorado */
+        .card-ingresar { border-left: 6px solid #eab308; } 
         .tag-ingresar { background-color: #fef9c3; color: #854d0e; }
         .card-ingresar h3 { color: #854d0e; }
 
-        .card-comunicacion { border-left: 6px solid #2563eb; } /* Azul */
+        .card-comunicacion { border-left: 6px solid #2563eb; } 
         .tag-comunicacion { background-color: #dbeafe; color: #1e40af; }
         .card-comunicacion h3 { color: #1e40af; }
 
-        .card-emergencia { border-left: 6px solid #dc2626; } /* Rojo */
+        .card-emergencia { border-left: 6px solid #dc2626; } 
         .tag-emergencia { background-color: #fee2e2; color: #991b1b; }
         .card-emergencia h3 { color: #991b1b; }
 
-        .modulo-tag {
-            font-size: 13px;
-            padding: 4px 14px;
-            border-radius: 50px;
-            font-weight: 600;
+        .card-voluntariado { border-left: 6px solid #8b5cf6; } 
+        .tag-voluntariado { background-color: #f3e8ff; color: #5b21b6; }
+        .card-voluntariado h3 { color: #5b21b6; }
+
+        .modulo-tag { font-size: 13px; padding: 4px 14px; border-radius: 50px; font-weight: 600; text-transform: uppercase; }
+        .modulo-info p { font-size: 16px; color: #475569; margin-bottom: 15px; }
+        .modulo-info ul { padding-left: 20px; margin: 0; color: #334155; }
+        .modulo-info li { margin-bottom: 8px; font-size: 15px; }
+
+        .container-imagen { text-align: center; width: 100%; }
+        .imagen-modulo { max-width: 100%; height: auto; max-height: 300px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
+
+        /* --- MONETIZACIÓN INSTITUCIONAL (PRECIOS) --- */
+        .seccion-precios { margin-top: 60px; margin-bottom: 60px; text-align: center; }
+        .tabla-precios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .precio-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 40px 30px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+            transition: transform 0.3s;
+        }
+
+        .precio-card:hover { transform: scale(1.03); }
+        .precio-card.destacado { border: 2px solid #2563eb; background: #f0f7ff; }
+        .precio-card h4 { margin-top: 0; font-size: 20px; color: #0f172a; }
+        .precio-costo { font-size: 36px; font-weight: 800; color: #1e3a8a; margin: 15px 0; }
+        .precio-costo span { font-size: 14px; color: #64748b; font-weight: 400; }
+        .precio-features { list-style: none; padding: 0; margin: 20px 0; text-align: left; }
+        .precio-features li { margin-bottom: 10px; font-size: 14px; color: #475569; }
+        .precio-features li::before { content: "✓ "; color: #10b981; font-weight: bold; }
+
+        /* --- NUEVA SECCIÓN DE CONTACTO OFICIAL --- */
+        .seccion-contacto {
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid #e2e8f0;
+            border-top: 6px solid #2563eb;
+            padding: 45px;
+            margin-top: 60px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .seccion-contacto h2 {
+            color: #0f172a;
+            font-size: 28px;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        @media (min-width: 768px) {
+            .contacto-grid { grid-template-columns: 1fr 1.2fr; }
+        }
+
+        .contacto-info-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contacto-item {
+            background: #f8fafc;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .contacto-label {
+            font-size: 12px;
             text-transform: uppercase;
+            color: #64748b;
+            font-weight: 700;
             letter-spacing: 0.5px;
         }
 
-        .modulo-info p {
+        .contacto-valor {
             font-size: 16px;
-            color: #475569;
-            margin-bottom: 15px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-top: 2px;
         }
 
-        .modulo-info ul {
-            padding-left: 20px;
-            margin: 0;
-            color: #334155;
+        .contacto-valor a {
+            color: #2563eb;
+            text-decoration: none;
         }
 
-        .modulo-info li {
-            margin-bottom: 8px;
-            font-size: 15px;
+        .contacto-valor a:hover {
+            text-decoration: underline;
         }
 
-        .container-imagen {
-            text-align: center;
-            width: 100%;
-        }
-
-        .imagen-modulo {
-            max-width: 100%;
-            height: auto;
-            max-height: 380px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid #f1f5f9;
-        }
+        /* --- SECCIÓN ALINEACIÓN ODS --- */
+        .seccion-ods { background: #ffffff; padding: 40px; border-radius: 24px; border: 1px solid #e2e8f0; margin-bottom: 5px; text-align: center; }
+        .ods-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-top: 25px; }
+        .ods-item { padding: 15px; border-radius: 12px; color: white; font-weight: 700; font-size: 13px; text-align: center; }
 
         /* --- PIE DE PÁGINA --- */
         footer {
             background-color: #0f172a;
             color: #94a3b8;
-            padding: 35px 20px;
+            padding: 40px 20px;
             text-align: center;
             font-size: 14px;
-            margin-top: 80px;
-            border-radius: 20px 20px 0 0;
+            margin-top: 40px;
+            border-radius: 24px 24px 0 0;
         }
 
-        footer strong {
-            color: #ffffff;
-        }
+        footer strong { color: #ffffff; }
 
-        /* Diseño responsivo para computadoras */
         @media (min-width: 768px) {
-            .modulo-card {
-                flex-direction: row;
-                align-items: center;
-            }
-            .modulo-info {
-                flex: 1.2;
-            }
-            .container-imagen {
-                flex: 0.8;
-            }
+            .modulo-card { flex-direction: row; align-items: center; }
+            .modulo-info { flex: 1.2; }
+            .container-imagen { flex: 0.8; }
+            .modulo-card.invertido { flex-direction: row-reverse; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="imagenes/logo10.png" alt="SITDIA Logo" class="logo-principal">
+        <div class="logo-contenedor">
+            <img src="imagenes/logo10.png" alt="SICADEL Logo" class="logo-principal" onerror="this.style.display='none'">
+            <span class="logo-texto">SICADEL</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#modulos">Módulos</a>
+            <a href="#ia">Laboratorio IA</a>
+            <a href="#precios">Licencias</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
     </header>
 
     <div class="container">
 
         <section class="hero">
-            <h1>¿Qué es SITDIA actualmente?</h1>
-            <p>Es un sistema tecnológico modular orientado al fortalecimiento de la accesibilidad comunicativa, la difusión de la Lengua de Señas Mexicana y el desarrollo de herramientas funcionales para situaciones reales[cite: 4]. El proyecto evoluciona hacia un ecosistema de herramientas digitales adaptadas a distintos contextos de interacción, aprendizaje, emergencia y apoyo comunicativo[cite: 5].</p>
+            <h1>Ecosistema Tecnológico SICADEL</h1>
+            <h2>Sistema Integral de Comunicación, Apoyo, Difusión y Emergencia para la Lengua de Señas Mexicana</h2>
+            <p>Un entorno de software modular diseñado de forma híbrida y con capacidad de operación 100% offline para erradicar las asimetrías comunicativas y proteger la vida, la autonomía y la identidad cultural de la comunidad sorda en México.</p>
+            <a href="#modulos" class="btn-primary">Explorar Ecosistema Modular</a>
+        </section>
+
+        <section class="seccion-stats">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-numero">+2 Millones</div>
+                    <div class="stat-label">Personas Sordas en México (INEGI)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-numero">Solo 40</div>
+                    <div class="stat-label">Intérpretes Certificados en la Nación</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-numero">82.7%</div>
+                    <div class="stat-label">Fricción Comunicativa en Campo (161 encuestados)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-numero">94.4%</div>
+                    <div class="stat-label">Aceptación Sobresaliente del Ecosistema</div>
+                </div>
+            </div>
         </section>
 
         <section class="historia-lsm">
             <h2>Historia de la Lengua de Señas Mexicana</h2>
-            
             <div class="historia-grid">
                 <div class="historia-bloque">
-                    <h3>Los Orígenes y el Mandato de Juárez</h3>
-                    <p>La historia de la LSM estructurada en nuestro país da un giro fundamental en 1867, bajo el mandato del presidente Benito Juárez, quien decretó la fundación de la Escuela Nacional de Sordomudos. Este hecho histórico permitió unificar las señas emergentes de las comunidades locales junto con la influencia de la lengua de señas francesa, consolidando formalmente los primeros cimientos de la identidad lingüística de la comunidad sorda mexicana.</p>
+                    <h3>1867: El Decreto de Juárez</h3>
+                    <p>Bajo el mandato presidencial de Benito Juárez se fundó formalmente la Escuela Nacional de Sordomudos. Este hecho histórico permitió unificar modismos emergentes con bases estructuradas de la Lengua de Señas Francesa, fijando los cimientos de la identidad lingüística de la comunidad en el país.</p>
                 </div>
-                
                 <div class="historia-bloque">
-                    <h3>Una Lengua legítima y Propia</h3>
-                    <p>La LSM posee su propia gramática, sintaxis, modismos y vocabulario estructurado, por lo que es un error considerarla una simple representación gestual del español o un deletreo de palabras[cite: 35]. Al igual que cualquier lengua viva, varía según las regiones geográficas del país y se apoya fuertemente en expresiones corporales y faciales para transmitir matices gramaticales y semánticos completos[cite: 35].</p>
+                    <h3>Una Estructura Gramatical Propia</h3>
+                    <p>La LSM posee su propia gramática, sintaxis y vocabulario completo. No es una simple mímica ni un deletreo manual del español. Es una lengua viva que utiliza el espacio tridimensional y las microexpresiones faciales para dar significado morfológico completo.</p>
                 </div>
-
                 <div class="historia-bloque">
-                    <h3>El Reconocimiento Oficial (2005)</h3>
-                    <p>Tras décadas de esfuerzo colectivo por la inclusión legal, el <strong>10 de junio de 2005</strong> marcó un hito histórico fundamental: la LSM fue reconocida de forma oficial por la ley como una <strong>lengua nacional</strong>[cite: 18]. Esto integró de lleno a la LSM como parte del valioso patrimonio lingüístico de México, igualando su estatus legal al de las lenguas indígenas y el español[cite: 18].</p>
+                    <h3>2005: Reconocimiento como Lengua Nacional</h3>
+                    <p>El 10 de junio de 2005 se marcó el hito legal definitivo: la LSM fue declarada oficialmente por ley como una Lengua Nacional de México, equiparando su estatus jurídico al de las lenguas indígenas y el español dentro del patrimonio lingüístico nacional.</p>
                 </div>
-
                 <div class="historia-bloque">
-                    <h3>El Enfoque de SITDIA en el Siglo XXI</h3>
-                    <p>A pesar de su estatus de lengua nacional, la escasez de soluciones tecnológicas interactivas diseñadas desde la realidad de los usuarios limita su masificación y preservación[cite: 23, 24, 25]. SITDIA surge precisamente en este contexto para responder de manera práctica, cultural y funcional ante los desafíos cotidianos de comunicación mediante una ingeniería de software modular[cite: 204, 205].</p>
+                    <h3>La Solución en el Siglo XXI</h3>
+                    <p>A pesar de su amparo legal, la escasez crítica de herramientas interactivas offline perpetúa la exclusión. SICADEL rompe esta asimetría mediante módulos portables y visión artificial avanzada adaptados a las condiciones de conectividad del entorno real.</p>
                 </div>
             </div>
         </section>
 
         <section class="enfoque-contenedor">
-            <h2>Enfoque Humano del Proyecto</h2>
-            <p>Uno de los pilares más importantes de SITDIA es su enfoque conceptual y humano: el proyecto <strong>no aborda a la comunidad sorda desde una perspectiva asistencialista, clínica o de inferioridad</strong>, ni plantea la sordera únicamente como una limitación médica que deba "corregirse"[cite: 31, 32, 33, 34]. Por el contrario, reconoce a la Lengua de Señas Mexicana como una lengua legítima con valor social propio[cite: 35]. La accesibilidad no se plantea como caridad, la inclusión no se basa en lástima y la tecnología busca fortalecer la autonomía y reducir las barreras cotidianas desde el máximo respeto a su identidad[cite: 37, 38, 40, 43].</p>
+            <h2>Enfoque Humano y Respeto a la Identidad</h2>
+            <p>SICADEL rechaza tajantemente las perspectivas clínico-asistencialistas que intentan tratar a la sordera como una limitación médica que debe ser "corregida" obligatoriamente. El ecosistema abraza a la Lengua de Señas Mexicana como un patrimonio cultural valioso. La accesibilidad aquí no es sinónimo de caridad, y la inclusión no se edifica sobre la lástima; la ingeniería se despliega para empoderar la autonomía del usuario con la máxima dignidad.</p>
         </section>
 
-        <section class="seccion-titulo">
-            <h2>Diseño General de la Aplicación</h2>
-            <p>La interfaz principal se estructura alrededor de tres módulos centrales representados mediante botones grandes, visuales y accesibles[cite: 166]:</p>
+        <section class="simulador-ia" id="ia">
+            <h2>Laboratorio de Visión Artificial Inteligente</h2>
+            <p>Simulación interactiva del algoritmo desarrollado en <strong>Python y OpenCV</strong>. El sistema extrae 21 mallas tridimensionales (landmarks) para mapear la postura geométrica de la mano y realizar la traducción en tiempo real.</p>
+            
+            <div class="panel-camara" id="marcoCamara">
+                <span id="textoCamara" style="color: #64748b;">[ Cámara Desactivada - Script en Espera ]</span>
+                <div class="malla-puntos" id="capaMalla"></div>
+            </div>
+            
+            <div style="text-align: center;">
+                <button class="btn-ia-control" onclick="simularSeña('Hola', 'imagenes/malla_hola.png')">Seña: "Hola"</button>
+                <button class="btn-ia-control" onclick="simularSeña('Gracias', 'imagenes/malla_gracias.png')">Seña: "Gracias"</button>
+                <button class="btn-ia-control" onclick="limpiarSimulador()">Apagar Laboratorio</button>
+            </div>
+            <center><div class="resultado-traduccion">Traducción Matemática: <span id="resultadoTexto">Ninguna</span></div></center>
+        </section>
+
+        <section class="seccion-titulo" id="modulos">
+            <h2>Arquitectura Modular Integrada</h2>
+            <p>Cuatro ejes funcionales codificados de forma nativa en Flutter y Dart para cubrir todos los contextos de interacción social.</p>
         </section>
 
         <div class="modulo-card card-ingresar">
             <div class="modulo-info">
                 <h3>Módulo: INGRESAR <span class="modulo-tag tag-ingresar">Contenidos y Aprendizaje</span></h3>
-                <p>Módulo de difusión y aprendizaje interactivo orientado al conocimiento de la LSM y la cultura sorda[cite: 125, 126]. Proporciona una experiencia dinámica y visualmente limpia alejada de lo institucional para incentivar la participación constante[cite: 140, 194, 203]. Incluye accesos directos a:</p>
+                <p>Eje interactivo de difusión y pedagogía lúdica diseñado para masificar el conocimiento de la LSM tanto en usuarios como en la población oyente:</p>
                 <ul>
-                    <li><strong>Contenidos informativos:</strong> Materiales didácticos y aprendizaje visual guiado[cite: 128, 131, 168].</li>
-                    <li><strong>Juegos interactivos:</strong> Dinámicas educativas, retos y sistemas de actividad para medir el progreso del usuario[cite: 135, 136, 137, 138, 168].</li>
-                    <li><strong>Exploración del sistema:</strong> Secciones dedicadas a la cultura sorda y expresiones básicas[cite: 129, 130, 168].</li>
+                    <li><strong>Contenidos visuales:</strong> Materiales interactivos y lecciones multimedia guiadas.</li>
+                    <li><strong>Gamificación:</strong> Zona de juegos, retos de puntaje y dinámicas para retener el aprendizaje.</li>
+                    <li><strong>Preservación Cultural:</strong> Secciones dedicadas a modismos regionales y expresiones cotidianas.</li>
                 </ul>
             </div>
             <div class="container-imagen">
-                <img src="imagenes/modulo1.png" alt="Módulo INGRESAR SITDIA" class="imagen-modulo">
+                <img src="imagenes/modulo1.png" alt="Módulo INGRESAR" class="imagen-modulo" onerror="this.src='https://placehold.co/400x300?text=Modulo+Aprendizaje'">
             </div>
         </div>
 
-        <div class="modulo-card card-comunicacion" style="flex-direction: column-reverse; @media (min-width: 768px) { flex-direction: row; }">
-            <div class="container-imagen">
-                <img src="imagenes/modulo2.png" alt="Módulo COMUNICACIÓN SITDIA" class="imagen-modulo">
-            </div>
+        <div class="modulo-card card-comunicacion invertido">
             <div class="modulo-info">
-                <h3>Módulo: COMUNICACIÓN <span class="modulo-tag tag-comunicacion">Interacción Cotidiana</span></h3>
-                <p>Diseñado específicamente para facilitar interacciones rápidas y reducir el impacto de las barreras comunicativas en entornos cotidianos[cite: 43, 46]. Utiliza un sistema práctico estructurado por categorías lógicas[cite: 48]:</p>
+                <h3>Módulo: COMUNICACIÓN <span class="modulo-tag tag-comunicacion">Interacción Inmediata</span></h3>
+                <p>Diseñado para mitigar la fricción comunicativa en entornos reales sin intermediarios artificiales complejos:</p>
                 <ul>
-                    <li><strong>Tarjetas Comunicativas Inmediatas:</strong> Despliega mensajes grandes, legibles y claros en la pantalla orientados a personas oyentes en escenarios cotidianos[cite: 46, 47, 177].</li>
-                    <li><strong>Categorías funcionales integradas:</strong> Organización óptima de mensajes en áreas críticas como necesidades básicas, salud, transporte, trámites, servicios públicos y comunicación de carácter social[cite: 48, 51, 59, 62, 69].</li>
-                    <li><strong>Apoyo cotidiano:</strong> Contempla futuras implementaciones como traducción rápida, reproducción por voz y personalización de tarjetas favoritas[cite: 74, 75, 76, 179].</li>
+                    <li><strong>Tarjetas de Contexto Inmediato:</strong> Mensajes de alto contraste orientados a trámites públicos y transporte.</li>
+                    <li><strong>Categorización Lógica:</strong> Estructuras de comunicación rápida divididas en salud, compras y social.</li>
+                    <li><strong>Sincronización Local:</strong> Lógica offline completa para agilizar la interacción en áreas sin señal.</li>
                 </ul>
+            </div>
+            <div class="container-imagen">
+                <img src="imagenes/modulo2.png" alt="Módulo COMUNICACION" class="imagen-modulo" onerror="this.src='https://placehold.co/400x300?text=Modulo+Comunicacion'">
             </div>
         </div>
 
         <div class="modulo-card card-emergencia">
             <div class="modulo-info">
-                <h3>Módulo: EMERGENCIA <span class="modulo-tag tag-emergencia">Asistencia y Seguridad</span></h3>
-                <p>Uno de los componentes más críticos de la arquitectura, enfocado en proveer herramientas de apoyo silencioso y seguro en situaciones de riesgo o accidentes donde la comunicación verbal directa resulta imposible[cite: 79, 81, 82]. Se compone de:</p>
+                <h3>Módulo: EMERGENCIA <span class="modulo-tag tag-emergencia">Seguridad y Rescate Offline</span></h3>
+                <p>La defensa crítica del usuario ante incidentes graves o catástrofes naturales (Inspirado en el impacto del Huracán Grace en 2021):</p>
                 <ul>
-                    <li><strong>Perfil Médico Almacenado:</strong> Guarda localmente datos vitales del usuario como nombre, tipo de sangre, alergias, medicamentos actuales, hospital preferido y contactos directos[cite: 83, 84, 85, 86, 87, 88, 89].</li>
-                    <li><strong>Sistema de Alertas dual:</strong> Diferenciación de protocolos institucionales automáticos para emergencias mayores (envío de ubicación, notificación automatizada y contacto con servicios públicos) y alertas de contingencia para contactos seleccionados ante desastres menores o accidentes controlados[cite: 93, 94, 96, 98, 99, 101, 103, 107].</li>
-                    <li><strong>QR de Emergencia y Pulsera:</strong> Vincula el perfil médico a un código QR dinámico que puede portarse físicamente en llaveros o pulseras de identificación, permitiendo a los servicios médicos escanearlo y conocer al instante condiciones críticas[cite: 112, 113, 115, 117, 120, 121].</li>
+                    <li><strong>Perfil Médico Cifrado:</strong> Datos vitales, alergias y contactos de emergencia guardados en almacenamiento local.</li>
+                    <li><strong>Código QR Portable Físico:</strong> Renderizado de datos médicos en un QR físico en llaveros o pulseras legibles por paramédicos sin internet.</li>
+                    <li><strong>Protocolos de Alerta Dual:</strong> Activación automatizada de avisos a contactos y cuerpos de auxilio médico.</li>
                 </ul>
             </div>
             <div class="container-imagen">
-                <img src="imagenes/modulo3.png" alt="Módulo EMERGENCIA SITDIA" class="imagen-modulo">
+                <img src="imagenes/modulo3.png" alt="Módulo EMERGENCIA" class="imagen-modulo" onerror="this.src='https://placehold.co/400x300?text=Modulo+Emergencia+QR'">
             </div>
         </div>
+
+        <div class="modulo-card card-voluntariado invertido">
+            <div class="modulo-info">
+                <h3>Módulo: SERVICIOS VOLUNTARIOS <span class="modulo-tag tag-voluntariado">Vinculación Humana</span></h3>
+                <p>El puente social del ecosistema, rompiendo el aislamiento mediante redes colaborativas de apoyo civil:</p>
+                <ul>
+                    <li><strong>Red de Traductores Civiles:</strong> Enlace directo entre la comunidad sorda y voluntarios intérpretes acreditados.</li>
+                    <li><strong>Asistencia Comunitaria:</strong> Herramientas de apoyo colaborativo para acompañamiento en trámites complejos.</li>
+                    <li><strong>Ecosistema Colaborativo:</strong> Conexión segura e híbrida gestionada de forma centralizada con MongoDB Atlas.</li>
+                </ul>
+            </div>
+            <div class="container-imagen">
+                <img src="imagenes/modulo4.png" alt="Módulo VOLUNTARIADO" class="imagen-modulo" onerror="this.src='https://placehold.co/400x300?text=Modulo+Voluntariado+Social'">
+            </div>
+        </div>
+
+        <section class="seccion-precios" id="precios">
+            <h2>Modelo de Sustentabilidad Institucional (SaaS)</h2>
+            <p>Garantizando un esquema donde el acceso para la comunidad sorda es de <strong>$0.00 MXN Gratitud Permanente</strong>, las licencias corporativas financian el ecosistema.</p>
+            
+            <div class="tabla-precios">
+                <div class="precio-card">
+                    <h4>Punto de Atención Accesible</h4>
+                    <div class="precio-costo">$1,500<span> / Año</span></div>
+                    <p style="font-size: 13px; color:#64748b;">Para comercios y escuelas privadas</p>
+                    <ul class="precio-features">
+                        <li>Kit de tarjetas contextuales</li>
+                        <li>Certificación de Espacio Inclusivo</li>
+                        <li>Interfaz web personalizada</li>
+                    </ul>
+                    <a href="mailto:rioscruz.josecarlos.2024@cbtis103.edu.mx?subject=Cotizacion%20Plan%2001" class="btn-primary" style="font-size:13px; padding:10px 20px;">Adquirir Licencia</a>
+                </div>
+                
+                <div class="precio-card destacado">
+                    <h4>Emergencia y Salud Segura</h4>
+                    <div class="precio-costo">$4,500<span> / Año</span></div>
+                    <p style="font-size: 13px; color:#2563eb;">Recomendado para Clínicas y Hospitales</p>
+                    <ul class="precio-features">
+                        <li>Lector de API Offline para QR</li>
+                        <li>Cifrado de datos médicos</li>
+                        <li>Soporte y actualizaciones críticas</li>
+                    </ul>
+                    <a href="mailto:rioscruz.josecarlos.2024@cbtis103.edu.mx?subject=Cotizacion%20Plan%2002" class="btn-primary" style="font-size:13px; padding:10px 20px;">Adquirir Licencia</a>
+                </div>
+                
+                <div class="precio-card">
+                    <h4>Gobierno Inclusivo</h4>
+                    <div class="precio-costo">$12,000<span> / Año</span></div>
+                    <p style="font-size: 13px; color:#64748b;">Para Municipios y Protección Civil</p>
+                    <ul class="precio-features">
+                        <li>Cuentas administrativas ilimitadas</li>
+                        <li>Capacitación LSM integrada</li>
+                        <li>Panel de control de Voluntariado</li>
+                    </ul>
+                    <a href="mailto:rioscruz.josecarlos.2024@cbtis103.edu.mx?subject=Cotizacion%20Plan%2003" class="btn-primary" style="font-size:13px; padding:10px 20px;">Adquirir Licencia</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-contacto" id="contacto">
+            <h2>Contacto de Desarrollo e Integración Institucional</h2>
+            <p>Para vinculación académica, adquisición de licenciamiento B2B/B2G o soporte del ecosistema modular, comuníquese directamente con la dirección del proyecto:</p>
+            
+            <div class="contacto-grid">
+                <div class="contacto-info-box">
+                    <div class="contacto-item">
+                        <div class="contacto-label">Líder de Proyecto e Ingeniería de Software</div>
+                        <div class="contacto-valor">RIOS CRUZ JOSE CARLOS</div>
+                    </div>
+                    <div class="contacto-item">
+                        <div class="contacto-label">Línea Telefónica Directa</div>
+                        <div class="contacto-valor"><a href="tel:+528332667285">833 266 7285</a></div>
+                    </div>
+                </div>
+                <div class="contacto-info-box">
+                    <div class="contacto-item" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                        <div class="contacto-label">Correo Electrónico Institucional</div>
+                        <div class="contacto-valor" style="word-break: break-all;"><a href="mailto:rioscruz.josecarlos.2024@cbtis103.edu.mx">rioscruz.josecarlos.2024@cbtis103.edu.mx</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-ods">
+            <h2>Alineación Estratégica con la Agenda 2030 ONU</h2>
+            <p>SICADEL impacta directamente en 6 Objetivos de Desarrollo Sostenible institucionales:</p>
+            <div class="ods-grid">
+                <div class="ods-item" style="background:#4c9f38;">ODS 3<br>Salud y Bienestar</div>
+                <div class="ods-item" style="background:#c5192d;">ODS 4<br>Educación de Calidad</div>
+                <div class="ods-item" style="background:#e11484;">ODS 10<br>Reducción Desigualdades</div>
+                <div class="ods-item" style="background:#f99d26;">ODS 11<br>Ciudades Sostenibles</div>
+                <div class="ods-item" style="background:#00689d;">ODS 16<br>Paz y Justicia</div>
+                <div class="ods-item" style="background:#14496b;">ODS 17<br>Alianzas Estratégicas</div>
+            </div>
+        </section>
 
     </div>
 
     <footer>
-        <p><strong>SITDIA</strong> - Sistema Inteligente para la Traducción y Difusión de la Lengua de Señas Mexicana[cite: 1].</p>
-        <p>© 2026 Concurso Académico de Innovación Tecnológica. Desarrollado con Framework Flutter[cite: 157]. Todos los derechos reservados.</p>
+        <p><strong>Ecosistema Modular SICADEL</strong> - Desarrollado por Ríos Cruz José Carlos</p>
+        <p>Orgullosamente CBTis No. 103 • 4° Semestre de Programación • Ciudad Madero, Tamaulipas</p>
+        <p>© 2026 Feria de Ciencias e Ingenierías Tamaulipas (FECIT). Construído con Framework Flutter y OpenCV.</p>
     </footer>
 
+    <script>
+        function simularSeña(nombreSeña, rutaImagen) {
+            document.getElementById('textoCamara').style.display = 'none';
+            var capaMalla = document.getElementById('capaMalla');
+            capaMalla.style.display = 'block';
+            capaMalla.style.backgroundColor = '#1e293b';
+            capaMalla.innerHTML = "<div style='color:#38bdf8; text-align:center; padding-top:130px; font-weight:bold; font-family:monospace;'>[ MediaPipe: 21 Landmarks Activos ]<br>Procesando mallas gestuales en tiempo real...</div>";
+            
+            document.getElementById('resultadoTexto').innerText = nombreSeña;
+            document.getElementById('resultadoTexto').style.color = '#10b981';
+        }
+
+        function limpiarSimulador() {
+            document.getElementById('capaMalla').style.display = 'none';
+            document.getElementById('textoCamara').style.display = 'block';
+            document.getElementById('resultadoTexto').innerText = "Ninguna";
+            document.getElementById('resultadoTexto').style.color = '#38bdf8';
+        }
+    </script>
 </body>
 </html>
